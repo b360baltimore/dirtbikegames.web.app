@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Dirt Bike Games</title>
+
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+        margin: 0;
+        padding: 0;
+      }
+
+      div.scrollmenu {
+        background: #535557;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 16px;
+        white-space: nowrap;
+      }
+
+      div.scrollmenu .item {
+        display: inline-block;
+        margin-left: 16px;
+        height: 400px;
+        width: 300px;
+        overflow: hidden;
+        white-space: normal;
+      }
+
+
+    </style>
+  </head>
+  <body class="w3-grey">
+
+    <div id="app" class="w3-container w3-content">
+      <div class="w3-light-grey w3-card-4 w3-bar w3-center">
+        <h1>Dirt Bike Games</h1>
+      </div>
+      <div id="games" class="scrollmenu w3-margin-top w3-dark-grey w3-card-4"></div>
+    </div>
+
+    <script>
+      // Available games
+      const games = [
+        {
+          "title": "Dirt Bike Coding Lab",
+          "subtitle": "",
+          "description": "Learn the basics of programming using a virtual dirtbike",
+          "image": "./games/BikeCodingLab/assets/game-view.png",
+          "url": "./games/BikeCodingLab/index.html"
+        },
+        {
+          "title": "Dirt Bike Physics Lab",
+          "subtitle": "Velocity",
+          "description": "Learn the basics of physics, starting with Velocity",
+          "image": "./game-thumbs/position-velocity.PNG",
+          "url": "./games/physics-position-velocity/index.html"
+        },
+        {
+          "title": "Bikeshop",
+          "subtitle": "",
+          "description": "Use CAD models to customize your own 3D dirt bike",
+          "image": "./game-thumbs/bike-shop.PNG",
+          "url": "./games/bike-shop/index.html"
+        }
+      ]
+
+      // Display the available games in the DOM
+      function showGames() {
+        const gameDiv = document.getElementById("games");
+
+        gameDiv.innerHTML = `${
+          games.map(function(game) {
+            return `
+              <div class="w3-card-4 game item w3-white w3-center">
+                <img src=${game.image} alt="game-thumb" style="width: 100%; height: 40%; object-fit: cover;">
+                <div class="w3-container" style="height: 50%; width: 100%">
+                  <h5><strong>${game.title}</strong>${":" + game.subtitle}</h5>
+                  <p>${game.description}</p>
+                </div>
+                <a href=${game.url} class="w3-button w3-block w3-blue w3-hover-orange" style="height: 10%;">Play</a>
+              </div>
+            `;
+          })
+        }`;
+      }
+
+      showGames();
+    </script>
+  </body>
+</html>
